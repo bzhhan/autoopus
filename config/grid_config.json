@@ -1,0 +1,18 @@
+{
+  "description": "1440x900",
+  "anchor_points": {
+    "left_most_hex_center": {
+      "x": 649,
+      "y": 441
+    },
+    "right_most_hex_center": {
+      "x": 1309,
+      "y": 441
+    }
+  },
+  "ui_points": {
+    "start_new_game_button": {"x": 632, "y": 822}
+  },
+  "grid_radius": 5,
+  "sampling_radius_ratio": 0.7
+}

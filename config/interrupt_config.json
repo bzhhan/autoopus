@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "condition_set": {
+    "logic": "OR",
+    "conditions": [
+      {
+        "variable": "elapsed_time",
+        "operator": ">",
+        "value": 11.5
+      }
+    ]
+  }
+}

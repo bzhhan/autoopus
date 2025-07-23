@@ -1,0 +1,8 @@
+opencv-python
+pydirectinput
+mss
+numpy
+pywin32
+Pillow
+matplotlib
+pandas

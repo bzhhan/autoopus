@@ -1,0 +1,31 @@
+{
+  "enabled": true,
+  "condition_set": {
+    "logic": "OR",
+    "conditions": [
+      {
+        "comment": "如果求解时间超过120秒，则中断。",
+        "logic": "AND",
+        "conditions": [
+          { "variable": "elapsed_time", "operator": ">", "value": 120 }
+        ]
+      },
+      {
+        "comment": "如果迭代超过10000次且队列大小仍然超过10000，则中断。",
+        "logic": "AND",
+        "conditions": [
+          { "variable": "iteration", "operator": ">", "value": 30000 },
+          { "variable": "open_set_size", "operator": ">", "value": 30000 }
+        ]
+      },
+      {
+        "comment": "如果求解陷入停滞:30秒后，最优g_cost仍然小于5，则中断。",
+        "logic": "AND",
+        "conditions": [
+          { "variable": "elapsed_time", "operator": ">", "value": 30 },
+          { "variable": "best_g_cost", "operator": "<", "value": 15 }
+        ]
+      }
+    ]
+  }
+}
