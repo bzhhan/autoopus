@@ -15,7 +15,7 @@
 打开命令行工具，克隆本项目到本地：
 
 ```bash
-git clone https://github.com/your-username/opus-magnum-bot.git
+git clone https://github.com/bzhhan/autoopus.git
 cd opus-magnum-bot
 ```
 
