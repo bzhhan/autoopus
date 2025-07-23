@@ -19,7 +19,6 @@ git clone https://github.com/bzhhan/autoopus.git
 cd opus-magnum-bot
 ```
 
-*(注意: 请将 `your-username/opus-magnum-bot.git` 替换为实际的项目地址)*
 
 ### b. 安装 Python 依赖
 
