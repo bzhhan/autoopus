@@ -143,7 +143,7 @@ class Solver:
     """
     Solves the puzzle using the A* search algorithm.
     """
-    def __init__(self, overlay_manager=None, heuristic_weights=None):
+    def __init__(self, overlay_manager=None, heuristic_weights=None, visualizer=None):
         """
         Initializes the Solver.
 
@@ -151,8 +151,10 @@ class Solver:
             overlay_manager (OverlayManager, optional): Manager for the GUI overlay.
             heuristic_weights (dict, optional): A dictionary of weights for the heuristic function.
                                                 If not provided, it's loaded from config.
+            visualizer (SolverVisualizer, optional): Visualizer for the A* search process.
         """
         self.overlay_manager = overlay_manager
+        self.visualizer = visualizer
         self._load_interrupt_config()
         if heuristic_weights:
             self.h_weights = heuristic_weights
@@ -265,15 +267,22 @@ class Solver:
         """
 
         
-        # Priority queue: (f_cost, g_cost, board_state, path)
-        open_set = [(0, 0, initial_board, [])]
+        # Priority queue: (f_cost, g_cost, board_state, path, parent_board)
+        open_set = [(0, 0, initial_board, [], None)]
         heapq.heapify(open_set)
         
         # Visited set stores hashes of boards we've already evaluated
         closed_set = set()
+        
+        # Track parent relationships for visualization
+        parent_map = {}
 
         start_time = time.time()
         iteration = 0
+        
+        # Add initial node to visualizer if available
+        if self.visualizer:
+            self.visualizer.add_node(hash(initial_board), parent_hash=None, g_cost=0, h_cost=0, is_initial=True)
         
         while open_set:
             iteration += 1
@@ -307,11 +316,27 @@ class Solver:
                 return None # Return None as no solution was found
             # --- End Interrupt Check ---
 
-            _, g_cost, current_board, path = heapq.heappop(open_set)
+            _, g_cost, current_board, path, parent_board = heapq.heappop(open_set)
 
             if current_board in closed_set:
                 continue
             closed_set.add(current_board)
+            
+            # Add node to visualizer when it's actually visited
+            if self.visualizer and current_board != initial_board:
+                parent_hash = hash(parent_board) if parent_board else None
+                # Calculate heuristic for current board
+                remaining_elements = [h for h in current_board.hex_states if h['element'] not in ["EMPTY", "OUT_OF_BOUNDS", "UNKNOWN"]]
+                locked_marbles = sum(1 for h in remaining_elements if not h.get('unlocked', False))
+                salt_marbles = sum(1 for h in remaining_elements if h['element'] == 'SALT')
+                metal_marbles = sum(1 for h in remaining_elements if h['element'] in current_board.metal_transmutation_order or h['element'] == 'QUICKSILVER')
+                h_cost = (
+                    (len(remaining_elements) * self.h_weights['remaining_elements_factor']) +
+                    (locked_marbles * self.h_weights['locked_marbles_penalty']) -
+                    (salt_marbles * self.h_weights['salt_marbles_reward']) +
+                    (metal_marbles * self.h_weights['metal_marbles_penalty'])
+                )
+                self.visualizer.add_node(hash(current_board), parent_hash=parent_hash, g_cost=g_cost, h_cost=h_cost)
 
 
             if current_board.is_solved():
@@ -321,6 +346,18 @@ class Solver:
                 else:
                     print() # Print a newline to not overwrite the final progress bar
                     print(f"DEBUG: {final_msg}", flush=True)
+                
+                # Set solution path in visualizer if available
+                if self.visualizer:
+                    # Convert path to board hashes for visualization
+                    solution_hashes = [hash(initial_board)]
+                    current_board_for_path = initial_board
+                    for move in path:
+                        current_board_for_path = current_board_for_path.apply_move(move)
+                        solution_hashes.append(hash(current_board_for_path))
+                    self.visualizer.set_solution_path(solution_hashes)
+                    self.visualizer.generate_layout_and_draw()
+                
                 return path # Solution found
 
             possible_moves = current_board.find_possible_moves()
@@ -347,13 +384,18 @@ class Solver:
                 f_cost = new_g_cost + h_cost
                 
                 new_path = path + [move]
-                heapq.heappush(open_set, (f_cost, new_g_cost, next_board, new_path))
+                heapq.heappush(open_set, (f_cost, new_g_cost, next_board, new_path, current_board))
         
         final_msg = "No solution found."
         if self.overlay_manager:
             self.overlay_manager.log(final_msg)
         else:
             print() # Print a newline to not overwrite the final progress bar
+        
+        # Generate visualization even if no solution found
+        if self.visualizer:
+            self.visualizer.generate_layout_and_draw()
+        
         return None # No solution found
 
 

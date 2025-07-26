@@ -33,13 +33,13 @@ class PuzzleRecorder:
         if puzzle_name:
             # If a full path is provided, use it directly
             if os.path.dirname(puzzle_name):
-                 filename = puzzle_name
+                 filepath = puzzle_name
             else:
                  filename = f"{puzzle_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+                 filepath = os.path.join(self.recording_dir, filename)
         else:
             filename = f"puzzle_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-        
-        filepath = os.path.join(self.recording_dir, filename) if not os.path.dirname(puzzle_name) else filename
+            filepath = os.path.join(self.recording_dir, filename)
 
 
         recording_data = {
