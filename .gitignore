@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# VSCode
+.vscode/
+
+# User-specific configs
+config/*.json
+!config/*.json.example
+!config/*.json.example1
+!config/*.json.example2

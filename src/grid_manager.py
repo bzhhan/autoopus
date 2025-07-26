@@ -105,6 +105,24 @@ class GridManager:
             cv2.putText(img_copy, str(i), (x + 5, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255, 255, 255), 1)
         return img_copy
 
+    def find_closest_hex(self, x, y):
+        """
+        Finds the index of the hex center closest to the given (x, y) coordinates.
+        """
+        closest_index = -1
+        min_dist_sq = float('inf')
+
+        for i, (hx, hy) in enumerate(self.hex_centers):
+            dist_sq = (x - hx)**2 + (y - hy)**2
+            if dist_sq < min_dist_sq:
+                min_dist_sq = dist_sq
+                closest_index = i
+        
+        # Optional: Add a threshold to prevent matching distant clicks
+        if min_dist_sq > self.hex_size**2:
+            return None
+
+        return closest_index
 if __name__ == '__main__':
     from window_manager import WindowManager
     
