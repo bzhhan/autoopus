@@ -298,7 +298,7 @@ class Solver:
         while open_set:
             iteration += 1
             
-            # --- Progress Bar Logic ---
+            # --- Progress Bar Logic (每1000次迭代输出一次) ---
             elapsed_time = time.time() - start_time
             # We need to get g_cost before popping, so we peek at the best item
             if open_set:
@@ -306,20 +306,18 @@ class Solver:
             else:
                 best_g_cost = 0 # Should not happen if loop continues
 
-            progress_str = (
-                f"S... [ I: {iteration:5d} | "
-                f"Q: {len(open_set):4d} | "
-                f"P: {best_g_cost:2d} | "
-                f"T: {elapsed_time:5.1f}s ]"
-            )
-            if self.overlay_manager:
-                # On the first iteration, add a new line. On subsequent iterations, update it.
-                if iteration == 1:
+            # 只在第1次迭代或每1000次迭代时输出信息
+            if iteration == 1 or iteration % 1000 == 0:
+                progress_str = (
+                    f"S... [ I: {iteration:5d} | "
+                    f"Q: {len(open_set):4d} | "
+                    f"P: {best_g_cost:2d} | "
+                    f"T: {elapsed_time:5.1f}s ]"
+                )
+                if self.overlay_manager:
                     self.overlay_manager.log(progress_str)
                 else:
-                    self.overlay_manager.update_last_line(progress_str)
-            else:
-                print(f"\r{progress_str}", end="", flush=True)
+                    print(f"{progress_str}", flush=True)
             # --- End Progress Bar ---
 
             # --- Interrupt Check ---
