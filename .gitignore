@@ -19,3 +19,6 @@ config/*.json
 !config/*.json.example1
 !config/*.json.example2
 
+recordings/
+
+src/__pycache__/
