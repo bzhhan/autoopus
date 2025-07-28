@@ -349,23 +349,6 @@ class Solver:
                 continue
             closed_set.add(current_board)
             
-            # Add node to visualizer when it's actually visited
-            if self.visualizer and current_board != initial_board:
-                parent_hash = parent_map.get(hash(current_board))
-                # Calculate heuristic for current board
-                remaining_elements = [h for h in current_board.hex_states if h['element'] not in ["EMPTY", "OUT_OF_BOUNDS", "UNKNOWN"]]
-                locked_marbles = sum(1 for h in remaining_elements if not h.get('unlocked', False))
-                salt_marbles = sum(1 for h in remaining_elements if h['element'] == 'SALT')
-                metal_marbles = sum(1 for h in remaining_elements if h['element'] in current_board.metal_transmutation_order or h['element'] == 'QUICKSILVER')
-                h_cost = (
-                    (len(remaining_elements) * self.h_weights['remaining_elements_factor']) +
-                    (locked_marbles * self.h_weights['locked_marbles_penalty']) -
-                    (salt_marbles * self.h_weights['salt_marbles_reward']) +
-                    (metal_marbles * self.h_weights['metal_marbles_penalty'])
-                )
-                self.visualizer.add_node(hash(current_board), parent_hash=parent_hash, g_cost=g_cost, h_cost=h_cost)
-
-
             if current_board.is_solved():
                 final_msg = "Solution found!"
                 if self.overlay_manager:
@@ -416,6 +399,12 @@ class Solver:
                 heapq.heappush(open_set, (f_cost, new_g_cost, next_board, new_path))
                 if self.visualizer:
                     parent_map[hash(next_board)] = hash(current_board)
+                    self.visualizer.add_node(
+                        node_hash=hash(next_board),
+                        parent_hash=hash(current_board),
+                        g_cost=new_g_cost,
+                        h_cost=h_cost
+                    )
         
         final_msg = "No solution found."
         if self.overlay_manager:
