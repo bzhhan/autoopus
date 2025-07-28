@@ -149,7 +149,7 @@ python tools/solver_visualizer.py path/to/your/puzzle.json
 
 ### c. 可视化图像解读
 
-![可视化示例](../assets/doc/visual/visualization_puzzle_68s_20250726_232036.png)
+![可视化示例](../assets/analysis/visual/visualization_puzzle_68s_20250726_232036.png)
 
 -   **节点 (Node)**: 图中的每个点代表求解器探索过的一个棋盘状态。
 -   **边 (Edge)**: 连接节点的线代表状态之间的转换（即一次消除操作）。
