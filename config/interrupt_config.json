@@ -1,5 +1,5 @@
 {
-  "enabled": true,
+  "enabled": false,
   "condition_set": {
     "logic": "OR",
     "conditions": [
@@ -11,7 +11,7 @@
         ]
       },
       {
-        "comment": "如果迭代超过10000次且队列大小仍然超过10000，则中断。",
+        "comment": "如果迭代超过30000次且队列大小仍然超过10000，则中断。",
         "logic": "AND",
         "conditions": [
           { "variable": "iteration", "operator": ">", "value": 30000 },

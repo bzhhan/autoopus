@@ -101,10 +101,22 @@ class GameBoard:
         return metal_element == lowest_metal_on_board
 
     def apply_move(self, move):
-        new_board = copy.deepcopy(self)
+        # 优化：避免使用 deepcopy，手动创建新状态
+        # 1. 创建一个新实例，共享不可变数据
+        new_board = GameBoard(self.grid)
+        
+        # 2. 为可变状态创建一个浅副本
+        new_hex_states = self.hex_states.copy()
+
+        # 3. 在副本上应用修改
         idx1, idx2 = move
-        new_board.hex_states[idx1] = {"element": "EMPTY", "state": "normal", "unlocked": False}
-        new_board.hex_states[idx2] = {"element": "EMPTY", "state": "normal", "unlocked": False}
+        new_hex_states[idx1] = {"element": "EMPTY", "state": "normal", "unlocked": False}
+        new_hex_states[idx2] = {"element": "EMPTY", "state": "normal", "unlocked": False}
+        
+        # 4. 将修改后的状态赋给新棋盘
+        new_board.hex_states = new_hex_states
+        
+        # 5. 更新状态并失效哈希
         new_board._update_unlock_status()
         new_board._hash = None # CRITICAL: Invalidate the hash cache
         return new_board
@@ -279,6 +291,7 @@ class Solver:
 
         start_time = time.time()
         iteration = 0
+        progress_logged_once = False
         
         # Add initial node to visualizer if available
         if self.visualizer:
@@ -306,7 +319,7 @@ class Solver:
             else:
                 best_g_cost = 0 # Should not happen if loop continues
 
-            # 只在第1次迭代或每1000次迭代时输出信息
+            # 只在第1次迭代或每1000次迭代时更新进度显示
             if iteration == 1 or iteration % 1000 == 0:
                 progress_str = (
                     f"S... [ I: {iteration:5d} | "
@@ -315,9 +328,14 @@ class Solver:
                     f"T: {elapsed_time:5.1f}s ]"
                 )
                 if self.overlay_manager:
-                    self.overlay_manager.log(progress_str)
+                    if not progress_logged_once:
+                        self.overlay_manager.log(progress_str)
+                        progress_logged_once = True
+                    else:
+                        self.overlay_manager.update_last_line(progress_str)
                 else:
-                    print(f"{progress_str}", flush=True)
+                    # 对于控制台输出，每1000次打印一个新行
+                    print(progress_str, flush=True)
             # --- End Progress Bar ---
 
             # --- Interrupt Check ---
