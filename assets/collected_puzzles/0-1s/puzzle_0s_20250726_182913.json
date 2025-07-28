@@ -1,0 +1,571 @@
+{
+    "puzzle_name": "collected_puzzles\\0-1s\\puzzle_0s_20250726_182913.json",
+    "timestamp": "2025-07-26T18:29:13.053497",
+    "initial_board_state": [
+        {
+            "element": "FIRE",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "WATER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "AIR",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "WATER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EARTH",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "AIR",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EARTH",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "FIRE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "AIR",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "VITAE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "MORS",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "WATER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "LEAD",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "AIR",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "AIR",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "VITAE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "WATER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "VITAE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "WATER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EARTH",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "WATER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "SALT",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "QUICKSILVER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "COPPER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "MORS",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "SALT",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "FIRE",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "SALT",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "QUICKSILVER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "AIR",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "FIRE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "GOLD",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "FIRE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "FIRE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "SALT",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "VITAE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EARTH",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EARTH",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "QUICKSILVER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "FIRE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "SILVER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "QUICKSILVER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "EARTH",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "AIR",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EMPTY",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "AIR",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "MORS",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "MORS",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "IRON",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "TIN",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "WATER",
+            "state": "normal",
+            "unlocked": true
+        },
+        {
+            "element": "WATER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EARTH",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "FIRE",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "QUICKSILVER",
+            "state": "darkened",
+            "unlocked": true
+        },
+        {
+            "element": "EARTH",
+            "state": "darkened",
+            "unlocked": true
+        }
+    ],
+    "solution_path": [
+        [
+            0,
+            40
+        ],
+        [
+            50,
+            51
+        ],
+        [
+            1,
+            85
+        ],
+        [
+            2,
+            5
+        ],
+        [
+            4,
+            90
+        ],
+        [
+            6,
+            61
+        ],
+        [
+            13,
+            14
+        ],
+        [
+            3,
+            86
+        ],
+        [
+            11,
+            70
+        ],
+        [
+            12,
+            21
+        ],
+        [
+            18,
+            30
+        ],
+        [
+            19,
+            89
+        ],
+        [
+            22,
+            38
+        ],
+        [
+            32,
+            84
+        ],
+        [
+            20,
+            78
+        ],
+        [
+            29,
+            77
+        ],
+        [
+            69,
+            83
+        ],
+        [
+            26,
+            28
+        ],
+        [
+            35,
+            75
+        ],
+        [
+            66,
+            87
+        ],
+        [
+            41,
+            80
+        ],
+        [
+            42,
+            74
+        ],
+        [
+            27,
+            81
+        ],
+        [
+            39,
+            43
+        ],
+        [
+            31,
+            56
+        ],
+        [
+            44,
+            88
+        ],
+        [
+            60,
+            82
+        ]
+    ]
+}

@@ -112,7 +112,7 @@ class SolverVisualizer:
                     print(f"Visualizer: Adapted h_gap to {self.h_gap:.4f} based on filename ({time_in_seconds}s).")
                 else:
                     # Handle case of 0s to avoid division by zero
-                    self.h_gap = 0.1 # Assign a large gap for 0s puzzles
+                    self.h_gap = 4 # Assign a large gap for 0s puzzles
                     print(f"Visualizer: Set h_gap to {self.h_gap:.4f} for 0s puzzle.")
 
             except (ValueError, IndexError):

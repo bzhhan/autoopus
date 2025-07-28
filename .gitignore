@@ -20,5 +20,6 @@ config/*.json
 !config/*.json.example2
 
 recordings/
-
+collected_puzzles/
+!assets/collected_puzzles/
 src/__pycache__/

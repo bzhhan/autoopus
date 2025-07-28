@@ -66,6 +66,7 @@ Sequence of moves (hex indices):
 
 项目参数的配置方法和模板获取方式，见 [用户手册](doc/USER_GUIDE.md)
 
+关于谜题录制与回放，见 [谜题录制与回放工具](doc/PUZZLE_RECORDER.md)
 
 关于启发式函数调参信息等，见 [附录](doc/APPENDIX.md)。
 
